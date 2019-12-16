@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="caplowAnthroModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="caplowAnthroModelStoreContainer">
+    <EntitySet Name="anthro_form" EntityType="caplowAnthroModel.Store.anthro_form" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="anthro_reading" EntityType="caplowAnthroModel.Store.anthro_reading" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="child_info" EntityType="caplowAnthroModel.Store.child_info" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="dss_info" EntityType="caplowAnthroModel.Store.dss_info" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="role" EntityType="caplowAnthroModel.Store.role" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="caplowAnthroModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="type_anthro" EntityType="caplowAnthroModel.Store.type_anthro" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="users" EntityType="caplowAnthroModel.Store.users" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_anthro_form_child_info" Association="caplowAnthroModel.Store.FK_anthro_form_child_info">
+      <End Role="child_info" EntitySet="child_info" />
+      <End Role="anthro_form" EntitySet="anthro_form" />
+    </AssociationSet>
+    <AssociationSet Name="FK_anthro_reading_anthro_form" Association="caplowAnthroModel.Store.FK_anthro_reading_anthro_form">
+      <End Role="anthro_form" EntitySet="anthro_form" />
+      <End Role="anthro_reading" EntitySet="anthro_reading" />
+    </AssociationSet>
+    <AssociationSet Name="FK_anthro_reading_type_anthro" Association="caplowAnthroModel.Store.FK_anthro_reading_type_anthro">
+      <End Role="type_anthro" EntitySet="type_anthro" />
+      <End Role="anthro_reading" EntitySet="anthro_reading" />
+    </AssociationSet>
+    <AssociationSet Name="FK_child_info_dss_info1" Association="caplowAnthroModel.Store.FK_child_info_dss_info1">
+      <End Role="dss_info" EntitySet="dss_info" />
+      <End Role="child_info" EntitySet="child_info" />
+    </AssociationSet>
+    <AssociationSet Name="FK_users_role" Association="caplowAnthroModel.Store.FK_users_role">
+      <End Role="role" EntitySet="role" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="anthro_form">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="followups" Type="nvarchar" MaxLength="5" />
+    <Property Name="age" Type="nvarchar" MaxLength="50" />
+    <Property Name="visit_status" Type="nvarchar" MaxLength="5" />
+    <Property Name="muac" Type="nvarchar" MaxLength="50" />
+    <Property Name="length" Type="nvarchar" MaxLength="50" />
+    <Property Name="weight" Type="nvarchar" MaxLength="50" />
+    <Property Name="head_circum" Type="nvarchar" MaxLength="50" />
+    <Property Name="ch_info_id" Type="int" />
+    <Property Name="user_id" Type="int" />
+    <Property Name="entry_dt" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="anthro_reading">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="code_R1" Type="nvarchar" MaxLength="50" />
+    <Property Name="code_R2" Type="nvarchar" MaxLength="50" />
+    <Property Name="reading1" Type="nvarchar" MaxLength="50" />
+    <Property Name="reading2" Type="nvarchar" MaxLength="50" />
+    <Property Name="difference" Type="nvarchar" MaxLength="50" />
+    <Property Name="type_anthro_id" Type="int" />
+    <Property Name="anthro_form_id" Type="int" />
+  </EntityType>
+  <EntityType Name="child_info">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="study_id" Type="nvarchar" MaxLength="50" />
+    <Property Name="ch_id" Type="nvarchar" MaxLength="50" />
+    <Property Name="child_nm" Type="nvarchar" MaxLength="50" />
+    <Property Name="mother_nm" Type="nvarchar" MaxLength="50" />
+    <Property Name="father_nm" Type="nvarchar" MaxLength="50" />
+    <Property Name="dob" Type="nvarchar" MaxLength="50" />
+    <Property Name="dss_id" Type="int" />
+    <Property Name="user_id" Type="int" />
+    <Property Name="entry_dt" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="dss_info">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="site" Type="nvarchar" MaxLength="10" />
+    <Property Name="para" Type="nvarchar" MaxLength="10" />
+    <Property Name="block" Type="nvarchar" MaxLength="10" />
+    <Property Name="struct" Type="nvarchar" MaxLength="10" />
+    <Property Name="hh" Type="nvarchar" MaxLength="5" />
+    <Property Name="wm_no" Type="nvarchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="role">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="role" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="type_anthro">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="type_name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="full_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="username" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+    <Property Name="role_id" Type="int" />
+  </EntityType>
+  <Association Name="FK_anthro_form_child_info">
+    <End Role="child_info" Type="caplowAnthroModel.Store.child_info" Multiplicity="0..1" />
+    <End Role="anthro_form" Type="caplowAnthroModel.Store.anthro_form" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="child_info">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="anthro_form">
+        <PropertyRef Name="ch_info_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_anthro_reading_anthro_form">
+    <End Role="anthro_form" Type="caplowAnthroModel.Store.anthro_form" Multiplicity="0..1" />
+    <End Role="anthro_reading" Type="caplowAnthroModel.Store.anthro_reading" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="anthro_form">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="anthro_reading">
+        <PropertyRef Name="anthro_form_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_anthro_reading_type_anthro">
+    <End Role="type_anthro" Type="caplowAnthroModel.Store.type_anthro" Multiplicity="0..1" />
+    <End Role="anthro_reading" Type="caplowAnthroModel.Store.anthro_reading" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="type_anthro">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="anthro_reading">
+        <PropertyRef Name="type_anthro_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_child_info_dss_info1">
+    <End Role="dss_info" Type="caplowAnthroModel.Store.dss_info" Multiplicity="0..1" />
+    <End Role="child_info" Type="caplowAnthroModel.Store.child_info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dss_info">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="child_info">
+        <PropertyRef Name="dss_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_users_role">
+    <End Role="role" Type="caplowAnthroModel.Store.role" Multiplicity="0..1" />
+    <End Role="users" Type="caplowAnthroModel.Store.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="role">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="caplowAnthroModelStoreContainer" CdmEntityContainer="caplowAnthroEntities1">
+    <EntitySetMapping Name="anthro_form">
+      <EntityTypeMapping TypeName="caplowAnthroModel.anthro_form">
+        <MappingFragment StoreEntitySet="anthro_form">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="followups" ColumnName="followups" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="visit_status" ColumnName="visit_status" />
+          <ScalarProperty Name="muac" ColumnName="muac" />
+          <ScalarProperty Name="length" ColumnName="length" />
+          <ScalarProperty Name="weight" ColumnName="weight" />
+          <ScalarProperty Name="head_circum" ColumnName="head_circum" />
+          <ScalarProperty Name="ch_info_id" ColumnName="ch_info_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="entry_dt" ColumnName="entry_dt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="anthro_reading">
+      <EntityTypeMapping TypeName="caplowAnthroModel.anthro_reading">
+        <MappingFragment StoreEntitySet="anthro_reading">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code_R1" ColumnName="code_R1" />
+          <ScalarProperty Name="code_R2" ColumnName="code_R2" />
+          <ScalarProperty Name="reading1" ColumnName="reading1" />
+          <ScalarProperty Name="reading2" ColumnName="reading2" />
+          <ScalarProperty Name="difference" ColumnName="difference" />
+          <ScalarProperty Name="type_anthro_id" ColumnName="type_anthro_id" />
+          <ScalarProperty Name="anthro_form_id" ColumnName="anthro_form_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="child_info">
+      <EntityTypeMapping TypeName="caplowAnthroModel.child_info">
+        <MappingFragment StoreEntitySet="child_info">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="study_id" ColumnName="study_id" />
+          <ScalarProperty Name="ch_id" ColumnName="ch_id" />
+          <ScalarProperty Name="child_nm" ColumnName="child_nm" />
+          <ScalarProperty Name="mother_nm" ColumnName="mother_nm" />
+          <ScalarProperty Name="father_nm" ColumnName="father_nm" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="dss_id" ColumnName="dss_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="entry_dt" ColumnName="entry_dt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dss_info">
+      <EntityTypeMapping TypeName="caplowAnthroModel.dss_info">
+        <MappingFragment StoreEntitySet="dss_info">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="site" ColumnName="site" />
+          <ScalarProperty Name="para" ColumnName="para" />
+          <ScalarProperty Name="block" ColumnName="block" />
+          <ScalarProperty Name="struct" ColumnName="struct" />
+          <ScalarProperty Name="hh" ColumnName="hh" />
+          <ScalarProperty Name="wm_no" ColumnName="wm_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="caplowAnthroModel.role">
+        <MappingFragment StoreEntitySet="role">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="role1" ColumnName="role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="caplowAnthroModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="type_anthro">
+      <EntityTypeMapping TypeName="caplowAnthroModel.type_anthro">
+        <MappingFragment StoreEntitySet="type_anthro">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="type_name" ColumnName="type_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="caplowAnthroModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="full_name" ColumnName="full_name" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

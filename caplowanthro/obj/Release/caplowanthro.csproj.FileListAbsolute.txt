@@ -1,0 +1,11 @@
+C:\Users\kashif-pc\Documents\Visual Studio 2012\Projects\caplowAnthro\caplowanthro\bin\caplowanthro.dll
+C:\Users\kashif-pc\Documents\Visual Studio 2012\Projects\caplowAnthro\caplowanthro\bin\caplowanthro.pdb
+C:\Users\kashif-pc\Documents\Visual Studio 2012\Projects\caplowAnthro\caplowanthro\bin\EntityFramework.dll
+C:\Users\kashif-pc\Documents\Visual Studio 2012\Projects\caplowAnthro\caplowanthro\bin\MySql.Data.Entity.dll
+C:\Users\kashif-pc\Documents\Visual Studio 2012\Projects\caplowAnthro\caplowanthro\bin\MySql.Data.Entity.EF6.dll
+C:\Users\kashif-pc\Documents\Visual Studio 2012\Projects\caplowAnthro\caplowanthro\bin\MySql.Fabric.Plugin.dll
+C:\Users\kashif-pc\Documents\Visual Studio 2012\Projects\caplowAnthro\caplowanthro\bin\EntityFramework.xml
+C:\Users\kashif-pc\Documents\Visual Studio 2012\Projects\caplowAnthro\caplowanthro\bin\MySql.Data.Entity.EF6.xml
+C:\Users\kashif-pc\Documents\Visual Studio 2012\Projects\caplowAnthro\caplowanthro\obj\Release\caplowanthro.csprojResolveAssemblyReference.cache
+C:\Users\kashif-pc\Documents\Visual Studio 2012\Projects\caplowAnthro\caplowanthro\obj\Release\caplowanthro.dll
+C:\Users\kashif-pc\Documents\Visual Studio 2012\Projects\caplowAnthro\caplowanthro\obj\Release\caplowanthro.pdb

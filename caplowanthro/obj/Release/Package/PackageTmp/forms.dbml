@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="caplowAnthro" Class="formsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=FA0421;Initial Catalog=caplowAnthro;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="caplowAnthroConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.child_info" Member="child_infos">
+    <Type Name="child_info">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="study_id" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ch_id" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="child_nm" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="gender" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="dss_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="user_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="entry_dt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="child_info_anthro_form" Member="anthro_forms" ThisKey="id" OtherKey="ch_info_id" Type="anthro_form" />
+      <Association Name="child_info_vaccine" Member="vaccines" ThisKey="id" OtherKey="ch_info_id" Type="vaccine" />
+      <Association Name="dss_info_child_info" Member="dss_info" ThisKey="dss_id" OtherKey="id" Type="dss_info" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dss_info" Member="dss_infos">
+    <Type Name="dss_info">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="mother_nm" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="father_nm" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dob" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="site" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="para" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="block" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="struct" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="hh" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="wm_no" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Association Name="dss_info_child_info" Member="child_infos" ThisKey="id" OtherKey="dss_id" Type="child_info" />
+    </Type>
+  </Table>
+  <Table Name="dbo.anthro_form" Member="anthro_forms">
+    <Type Name="anthro_form">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="crf_no" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="followups" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="age" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="visit_status" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="muac" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="length" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="weight" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="head_circum" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ch_info_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="user_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="entry_dt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="anthro_form_anthro_reading" Member="anthro_readings" ThisKey="id" OtherKey="anthro_form_id" Type="anthro_reading" />
+      <Association Name="child_info_anthro_form" Member="child_info" ThisKey="ch_info_id" OtherKey="id" Type="child_info" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.anthro_reading" Member="anthro_readings">
+    <Type Name="anthro_reading">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="code_R1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="code_R2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="reading1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="reading2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="difference" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="type_anthro_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="anthro_form_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="anthro_form_anthro_reading" Member="anthro_form" ThisKey="anthro_form_id" OtherKey="id" Type="anthro_form" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vaccine" Member="vaccines">
+    <Type Name="vaccine">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="bcg_0" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bcg_0_dt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bcg_0_prf" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="polio_0" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="polio_0_dt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="polio_0_prf" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="polio_1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="polio_1_dt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="polio_1_prf" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="penta_1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="penta_1_dt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="penta_1_prf" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="pcv_1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="pcv_1_dt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="pcv_1_prf" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="opv_1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="opv_1_dt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="opv_1_prf" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="rota_1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="rota_1_dt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="rota_1_prf" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="opv_2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="opv_2_dt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="opv_2_prf" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="penta_2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="penta_2_dt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="penta_2_prf" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="pcv_2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="pcv_2_dt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="pcv_2_prf" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="rota_2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="rota_2_dt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="rota_2_prf" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="opv_3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="opv_3_dt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="opv_3_prf" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="penta_3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="penta_3_dt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="penta_3_prf" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="pcv3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="pcv3_dt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="pcv3_prf" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ipv" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ipv_dt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ipv_prf" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="measles_1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="measles_1_dt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="measles_1_prf" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="user_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="entry_dt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ch_info_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="child_info_vaccine" Member="child_info" ThisKey="ch_info_id" OtherKey="id" Type="child_info" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
