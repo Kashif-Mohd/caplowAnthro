@@ -206,6 +206,7 @@
                         <asp:BoundField DataField="year_2017" HeaderText="2017" />
                         <asp:BoundField DataField="year_2018" HeaderText="2018" />
                         <asp:BoundField DataField="year_2019" HeaderText="2019" />
+                        <asp:BoundField DataField="year_2020" HeaderText="2020" />
                     </Columns>
                     <RowStyle BackColor="White" ForeColor="#284775" />
                     <HeaderStyle BackColor="#A3CB38" ForeColor="white" Font-Bold="True" Height="40px" />
